@@ -8,7 +8,7 @@ Os seguintes serviços backends foram desenvolvidos:
 * Busca e listagem de todos os clientes com todas as suas informações; 
 * Busca de cliente pelo ID cadastrado no Banco de Dados;
 * Exclusão do registro do cliente e os seus dados sendo feito uma busca de verificação por ID;
-* Atualização de todos os dados do cliente buscado por ID.
+* Atualização de todos os dados do cliente buscado por ID;
 * Teste Unitário.
 
 Para executar o projeto no terminal, digite o seguinte comando:
