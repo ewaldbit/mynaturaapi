@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,9 +43,20 @@ public class ClientService {
     }
 
     public ClientDTO findById(Long id) throws ClientNotFoundException {
-        Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new ClientNotFoundException(id));
-
+        Client client = verifyIfExists(id);
         return clientMapper.ToDTO(client);
     }
+
+    public void deleteById(Long id) throws ClientNotFoundException {
+        verifyIfExists(id);
+        clientRepository.deleteById(id);
+    }
+
+    private Client verifyIfExists(Long id) throws ClientNotFoundException {
+        return clientRepository.findById(id)
+                .orElseThrow(() -> new ClientNotFoundException(id));
+    }
+
+
+
 }

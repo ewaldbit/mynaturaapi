@@ -38,5 +38,12 @@ public class ClientController {
     @GetMapping("/{id}")
     public ClientDTO findById(@PathVariable Long id) throws ClientNotFoundException {
         return clientService.findById(id);
+    };
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws ClientNotFoundException {
+        clientService.deleteById(id);
     }
+
 }
