@@ -46,4 +46,9 @@ public class ClientController {
         clientService.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody ClientDTO clientDTO) throws ClientNotFoundException {
+        return clientService.updateById(id, clientDTO);
+    }
+
 }
