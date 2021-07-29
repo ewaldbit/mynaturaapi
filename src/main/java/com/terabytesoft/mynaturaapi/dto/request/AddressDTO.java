@@ -1,4 +1,4 @@
-package com.terabytesoft.mynaturaapi.dto;
+package com.terabytesoft.mynaturaapi.dto.request;
 
 import com.terabytesoft.mynaturaapi.enums.PlaceType;
 import lombok.AllArgsConstructor;

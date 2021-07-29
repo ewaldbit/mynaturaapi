@@ -1,6 +1,6 @@
 package com.terabytesoft.mynaturaapi.mapper;
 
-import com.terabytesoft.mynaturaapi.dto.ClientDTO;
+import com.terabytesoft.mynaturaapi.dto.request.ClientDTO;
 import com.terabytesoft.mynaturaapi.entity.Client;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

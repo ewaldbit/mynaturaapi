@@ -1,11 +1,12 @@
 package com.terabytesoft.mynaturaapi.service;
 
-import com.terabytesoft.mynaturaapi.dto.ClientDTO;
+import com.terabytesoft.mynaturaapi.dto.request.ClientDTO;
 import com.terabytesoft.mynaturaapi.dto.MessageResponseDTO;
 import com.terabytesoft.mynaturaapi.entity.Client;
 import com.terabytesoft.mynaturaapi.exception.ClientNotFoundException;
 import com.terabytesoft.mynaturaapi.mapper.ClientMapper;
 import com.terabytesoft.mynaturaapi.repository.ClientRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +14,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ClientService {
 
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     private final ClientMapper clientMapper = ClientMapper.INSTANCE;
-
-    @Autowired
-    public ClientService(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-    }
 
     public MessageResponseDTO createClient(ClientDTO clientDTO) {
 
         Client clientToSave = clientMapper.ToModel(clientDTO);
 
         Client savedClient = clientRepository.save(clientToSave);
-        return createMessageResponse(savedClient.getId(), "Client saved with id: ");
+        return createMessageResponse(savedClient.getId(), "Client successfully created with ID: ");
     }
 
     public List<ClientDTO> listAll() {
@@ -55,7 +52,7 @@ public class ClientService {
         Client clientToUpdate = clientMapper.ToModel(clientDTO);
 
         Client updatedClient = clientRepository.save(clientToUpdate);
-        return createMessageResponse(updatedClient.getId(), "Client updated with id: ");
+        return createMessageResponse(updatedClient.getId(), "Client successfully updated with id: ");
     }
 
     private Client verifyIfExists(Long id) throws ClientNotFoundException {

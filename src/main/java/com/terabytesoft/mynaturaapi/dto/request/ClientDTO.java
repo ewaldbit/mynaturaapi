@@ -1,7 +1,5 @@
-package com.terabytesoft.mynaturaapi.dto;
+package com.terabytesoft.mynaturaapi.dto.request;
 
-import com.terabytesoft.mynaturaapi.entity.Address;
-import com.terabytesoft.mynaturaapi.entity.Phone;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +9,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -40,9 +37,9 @@ public class ClientDTO {
 
     @NotEmpty
     @Valid
-    private List<Address> address;
+    private List<AddressDTO> address;
 
     @NotEmpty
     @Valid
-    private List<Phone> phones;
+    private List<PhoneDTO> phones;
 }

@@ -1,6 +1,6 @@
 package com.terabytesoft.mynaturaapi.controller;
 
-import com.terabytesoft.mynaturaapi.dto.ClientDTO;
+import com.terabytesoft.mynaturaapi.dto.request.ClientDTO;
 import com.terabytesoft.mynaturaapi.dto.MessageResponseDTO;
 import com.terabytesoft.mynaturaapi.exception.ClientNotFoundException;
 import com.terabytesoft.mynaturaapi.service.ClientService;
